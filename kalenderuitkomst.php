@@ -1,3 +1,22 @@
+<?php
+$servername = "localhost";
+$username = "root2";
+$password = "danny";
+$dbname = "myDB1";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+echo "Connected successfully";
+
+
+?>
+
+
 
 <!doctype html>
 
@@ -8,6 +27,50 @@
 	</head>
 	
 	<body>
+            
+        <?php 
+
+        $voornaamVar = $_POST["voornaam"];
+        $achternaamVar = $_POST["achternaam"];
+        $emailVar = $_POST["email"];
+
+        echo $voornaamVar;
+        echo $achternaamVar;
+        echo $emailVar;
+
+        $sql = "INSERT INTO MyGuests (firstname, lastname, email)
+        VALUES ('$voornaamVar', '$achternaamVar', '$emailVar')";
+
+        if (mysqli_query($conn, $sql)) {
+            echo "New record created successfully";
+        } else {
+            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        }
+
+        mysqli_close($conn);
+
+        ?>
+      
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 		<h1>februari</h1>
 		<h2>22</h2>
         <p>

@@ -42,7 +42,7 @@ h2 {
     The day numbers are on the left with a list of person names to the right of them.
 */
 
-h1 {
+h1 { 
     margin: 0;
     border-bottom: 1px dotted grey;
 }
